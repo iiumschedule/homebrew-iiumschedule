@@ -13,11 +13,10 @@ jobs:
 
       - name: Update cask
         run: |
-          sudo apt install jq
           LATEST_RELEASE=$(curl --silent "https://api.github.com/repos/iiumschedule/iium_schedule/releases/latest" | jq -r '.tag_name')
-          LATEST_SHA=$(curl -sL "https://github.com/iiumschedule/iium_schedule/releases/download/v${LATEST_RELEASE}/IIUMSchedule.dmg" | sha256sum | cut -f 1 -d " ")
-
           echo "Latest release: $LATEST_RELEASE"
+
+          LATEST_SHA=$(curl -sL "https://github.com/iiumschedule/iium_schedule/releases/download/${LATEST_RELEASE}/IIUMSchedule.dmg" | sha256sum | cut -f 1 -d " ")
           echo "Latest SHA: $LATEST_SHA"
 
           sed -i "s/version .*/version \"${LATEST_RELEASE}\"/" Casks/iiumschedule.rb
@@ -29,7 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          COMMIT_MSG=":wrench: Update LocalSend cask to v${{ env.LATEST_RELEASE }}"
+          COMMIT_MSG=":wrench: Update IIUM Schedule cask to v${{ env.LATEST_RELEASE }}"
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add Casks/iiumschedule.rb

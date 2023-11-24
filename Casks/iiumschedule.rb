@@ -4,7 +4,7 @@ cask "iiumschedule" do
 
   url "https://github.com/iiumschedule/iium_schedule/releases/download/#{version}/IIUMSchedule.dmg"
   name "IIUM Schedule"
-  desc "An open source class schedule generator for IIUM students"
+  desc "Class schedule generator for IIUM students"
   homepage "https://iiumschedule.iqfareez.com/"
 
   depends_on macos: ">= :catalina"
