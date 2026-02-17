@@ -1,6 +1,6 @@
 cask "iiumschedule" do
-  version "1.4.7+46"
-  sha256 "c3fc9fd9b37730cefc2a09e8a57c0c005a6a16cfadd617521f2e662782bcd6c4"
+  version "1.4.8+47"
+  sha256 "55566666c0b673934c70435a844ddcf68c487997711b954677db9e6903ddec79"
 
   url "https://github.com/iiumschedule/iium_schedule/releases/download/#{version}/IIUMSchedule.dmg"
   name "IIUM Schedule"
